@@ -7,8 +7,8 @@ import Script from "next/script";
 
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const inter = Inter({ subsets: ["latin"] });
 
