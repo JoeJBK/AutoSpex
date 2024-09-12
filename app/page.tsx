@@ -9,7 +9,7 @@ import { SignUpForm } from "./signup-form"
 import { WelcomeBackCard } from "./welcome-back-card"
 
 export default async function Home() {
-  const session = await appClient.getSession()
+  const session = '';//await appClient.getSession()
 
   return (
     <div className="container relative sm:grid h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
