@@ -8,7 +8,7 @@ import ReactECharts from 'echarts-for-react';
 // import ActivePrivateListings from '../../components/Cards/ActivePrivateListings';
 // import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../../lib/api';
 
-export default function index() {
+export default function Page() {
   const [vin, setVin] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [miles, setMiles] = useState('');
