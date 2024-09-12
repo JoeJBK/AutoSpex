@@ -55,3 +55,5 @@ async function dealerListings(year = null, make = null, model = null, trim = nul
     console.error(err);
   }
 }
+
+export const dynamic = "force-dynamic";

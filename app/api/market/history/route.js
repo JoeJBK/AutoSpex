@@ -55,3 +55,5 @@ async function salesHistory(year = null, make = null, model = null, trim = null)
     console.error(err);
   }
 }
+
+export const dynamic = "force-dynamic";

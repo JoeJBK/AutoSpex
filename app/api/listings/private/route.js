@@ -64,3 +64,5 @@ async function privateListings(year = null, make = null, model = null, trim = nu
     console.error(err);
   }
 }
+
+export const dynamic = "force-dynamic";

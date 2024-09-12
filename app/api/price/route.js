@@ -39,3 +39,5 @@ async function priceHistory(vin, miles, zip, retries = 3) {
     return { error: err.message };
   }
 }
+
+export const dynamic = "force-dynamic";
