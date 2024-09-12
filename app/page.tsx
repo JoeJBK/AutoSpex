@@ -1,5 +1,3 @@
-
-
 import { appClient } from "@/lib/auth0";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -9,11 +7,11 @@ import { Button, Card, CardHeader, CardBody, CardFooter, Link } from "@nextui-or
 
 
 export default async function Home() {
-  const session = '';//await appClient.getSession()
+  // const session = await appClient.getSession()
 
   return (
-    <div className="container relative sm:grid h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-      <Card className="max-w-lg w-full h-min">
+    <div className="">
+      <Card className="max-w-lg w-full h-min m-auto">
         <CardHeader className="flex justify-center items-center">
           <i className="fa fa-car mr-3 text-2xl text-blue"></i>
           <h3 className="text-xl font-semibold">Compare a Vehicle</h3>
@@ -26,8 +24,7 @@ export default async function Home() {
         </CardBody>
 
         <CardFooter className="flex justify-center">
-          <Button color="primary" as={Link} href="/vin/analysis">
-            <i className="fa fa-chart-line mr-3 text-2xl text-white"></i>
+          <Button color="primary" as={Link} href="/analysis">
             Try Now
           </Button>
         </CardFooter>
