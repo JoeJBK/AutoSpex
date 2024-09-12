@@ -1,8 +1,6 @@
 'use client';
 const API_KEY = process.env.MARKET_CHECK_KEY;
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 export async function GET(request) {
   const url = new URL(request.url);
 
