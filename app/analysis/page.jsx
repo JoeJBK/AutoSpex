@@ -6,7 +6,7 @@ import ReactECharts from 'echarts-for-react';
 // import ActiveDealerListings from '../../components/Cards/ActiveDealerListings';
 // import ActiveAuctionListings from '../../components/Cards/ActiveAuctionListings';
 // import ActivePrivateListings from '../../components/Cards/ActivePrivateListings';
-// import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../../lib/api';
+import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../lib/fetchPriceHistory';
 
 export default function Page() {
   const [vin, setVin] = useState('');
