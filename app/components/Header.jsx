@@ -7,6 +7,7 @@ export default function Header() {
       <div>
         <Image
           width={'250'}
+          alt="Site logo"
           className="cursor-pointer max-w-[35%] md:max-w-[50%]"
           onClick={() => { window.location.replace('/'); }}
           src="/assets/imgs/bluelogo.png"
