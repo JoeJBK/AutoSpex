@@ -21,7 +21,7 @@ export default async function Home() {
 
         <CardBody className="text-center">
           <p className="text-gray-700 mb-6">
-            Discover how a vehicle's previous listings compare to the current market. Click the button below to analyze any VIN and see trends, pricing, and more.
+            Discover how a vehicle&apos;s previous listings compare to the current market. Click the button below to analyze any VIN and see trends, pricing, and more.
           </p>
         </CardBody>
 
