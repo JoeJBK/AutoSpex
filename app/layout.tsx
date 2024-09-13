@@ -25,16 +25,16 @@ export default async function RootLayout({
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        >
+        > */}
           <Header />
           {children}
           <Footer />
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
 
         <Toaster position="bottom-right" />
         <Script id="heap">
