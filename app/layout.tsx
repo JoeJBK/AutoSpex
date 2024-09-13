@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css"; // Tailwind CSS imports here
+import "./globals.css"; 
 
 import { Inter } from "next/font/google";
-import Script from "next/script";
-
 import { NextUIProvider } from '@nextui-org/react';
-import { Toaster } from "@/components/ui/sonner";
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -28,8 +25,6 @@ export default async function RootLayout({
           {children}
           <Footer />
         </NextUIProvider>
-
-        <Toaster position="bottom-right" />
       </body>
     </html>
   );
