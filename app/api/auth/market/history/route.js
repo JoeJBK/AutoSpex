@@ -1,3 +1,4 @@
+import { NextResponse } from 'next/server';
 
 const API_KEY = process.env.MARKET_CHECK_KEY;
 
@@ -5,7 +6,6 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function GET(request) {
   const url = new URL(request.url);
-
   const params = new URLSearchParams(url.search);
 
   const year = params.get('year');
@@ -14,10 +14,10 @@ export async function GET(request) {
   const trim = params.get('trim');
 
   const data = await salesHistory(year, make, model, trim);
-  return new Response(
-    JSON.stringify(data),
-    { headers: { 'Content-Type': 'application/json' } }
-  );
+
+  return NextResponse.json(data, {
+    headers: { 'Content-Type': 'application/json' }
+  });
 }
 
 //API Functions
@@ -37,7 +37,9 @@ async function salesHistory(year = null, make = null, model = null, trim = null)
     if (trim) {
       url += `|${encodeURIComponent(trim)}`;
     }
+    
     console.log(url);
+
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -53,5 +55,6 @@ async function salesHistory(year = null, make = null, model = null, trim = null)
     return data;
   } catch (err) {
     console.error(err);
+    return { error: 'Failed to fetch sales history.' };
   }
 }

@@ -1,21 +1,20 @@
-// src/app/api/vin/history/route.js
+import { NextResponse } from 'next/server';
+
 const API_KEY = process.env.MARKET_CHECK_KEY;
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 export async function GET(request) {
   const url = new URL(request.url);
-  
   const params = new URLSearchParams(url.search);
-  
   const vin = params.get('vin');
-  const data = await priceHistory(vin)
-  return new Response(
-    JSON.stringify(data), 
-    { headers: { 'Content-Type': 'application/json' } }
-  );
+  
+  const data = await priceHistory(vin);
+
+  return NextResponse.json(data, {
+    headers: { 'Content-Type': 'application/json' }
+  });
 }
-
-
 
 //API Functions
 async function priceHistory(vin, retries = 3) {
@@ -31,6 +30,7 @@ async function priceHistory(vin, retries = 3) {
       await delay(1000); 
       return await priceHistory(vin, retries - 1);
     }
+
     const data = await response.json();
     return data;
   } catch (err) {
