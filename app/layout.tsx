@@ -33,7 +33,7 @@ export default async function RootLayout({
         > */}
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         {/* </ThemeProvider> */}
 
         <Toaster position="bottom-right" />
