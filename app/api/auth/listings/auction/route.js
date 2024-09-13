@@ -1,3 +1,4 @@
+import { NextResponse } from 'next/server';
 
 const API_KEY = process.env.MARKET_CHECK_KEY;
 
@@ -5,7 +6,6 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function GET(request) {
   const url = new URL(request.url);
-
   const params = new URLSearchParams(url.search);
 
   const year = params.get('year');
@@ -14,13 +14,13 @@ export async function GET(request) {
   const trim = params.get('trim');
 
   const data = await auctionListings(year, make, model, trim);
-  return new Response(
-    JSON.stringify(data),
-    { headers: { 'Content-Type': 'application/json' } }
-  );
+
+  return NextResponse.json(data, {
+    headers: { 'Content-Type': 'application/json' }
+  });
 }
 
-//API Functions
+// API Functions
 async function auctionListings(year = null, make = null, model = null, trim = null) {
   try {
     let url = `https://mc-api.marketcheck.com/v2/search/car/auction/active?api_key=${API_KEY}`;
@@ -53,5 +53,6 @@ async function auctionListings(year = null, make = null, model = null, trim = nu
     return data;
   } catch (err) {
     console.error(err);
+    return { error: 'Failed to fetch auction listings.' };
   }
 }
