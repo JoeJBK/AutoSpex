@@ -43,16 +43,9 @@ export default function Page() {
         },
       },
     },
-    // tooltip: {
-    //   trigger: 'axis',
-    //   formatter: function (params) {
-    //     let result = '';
-    //     params.forEach(function (item) {
-    //      console.log(item, listingData)
-    //     });
-    //     return result;
-    //   }
-    // },
+    tooltip: {
+      trigger: 'axis',
+    },
   };
   const [priceTimelineOptions, setPriceTimelineOptions] = useState({
     ...timelineOptions,
@@ -114,16 +107,9 @@ export default function Page() {
             smooth: true
           }
         ],
-        // tooltip: {
-        //   trigger: 'axis',
-        //   formatter: function (params) {
-        //     let result = '';
-        //     params.forEach(function (item) {
-        //     //  console.log(item, listingData)
-        //     });
-        //     return result;
-        //   }
-        // },
+        tooltip: {
+          trigger: 'axis'
+        },
       });
     } catch (error) {
       alert(error.message);
@@ -165,7 +151,7 @@ export default function Page() {
           radius="lg"
         />
         <Button
-          className="bg-blue hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+          className="bg-gray hover:bg-blue-600 font-semibold px-8 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform"
           onClick={() => handleSubmit()}
         >
           Submit

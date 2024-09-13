@@ -8,7 +8,7 @@ export default function Header() {
         <Image
           width={'250'}
           alt="Site logo"
-          className="cursor-pointer max-w-[35%] md:max-w-[50%]"
+          className="cursor-pointer max-w-[25%] md:max-w-[50%] opacity-100"
           onClick={() => { window.location.replace('/'); }}
           src="/assets/imgs/bluelogo.png"
         />
