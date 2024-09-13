@@ -1,13 +1,7 @@
-import { appClient } from "@/lib/auth0";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { Auth0Logo } from "@/components/auth0-logo";
-
 import { Button, Card, CardHeader, CardBody, CardFooter, Link } from "@nextui-org/react";
 
 
 export default async function Home() {
-  // const session = await appClient.getSession()
 
   return (
     <div className="p-4">

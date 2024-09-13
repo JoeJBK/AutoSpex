@@ -10,7 +10,7 @@ export default function Header() {
           alt="Site logo"
           className="cursor-pointer max-w-[25%] md:max-w-[50%] opacity-100"
           onClick={() => { window.location.replace('/'); }}
-          src="/assets/imgs/bluelogo.png"
+          src="/assets/imgs/whitelogo.png"
         />
       </div>
       <div>

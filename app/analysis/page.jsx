@@ -3,9 +3,6 @@ import { useState } from 'react';
 import { Button, Input, Card, CardHeader, CardBody, CardFooter, Spinner } from "@nextui-org/react";
 import ReactECharts from 'echarts-for-react';
 
-import ActiveDealerListings from '../components/Cards/ActiveDealerListings';
-import ActiveAuctionListings from '../components/Cards/ActiveAuctionListings';
-import ActivePrivateListings from '../components/Cards/ActivePrivateListings';
 import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../lib/api';
 
 export default function Page() {
@@ -114,7 +111,7 @@ export default function Page() {
   return (
     <div className="p-6">
       <div className="">
-        <Card className="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+        <Card className="p-6 rounded-lg shadow-lg text-center">
           <CardHeader >
             <h1 className="text-2xl font-bold text-blue-600">Check Your Vehicle's Data</h1>
           </CardHeader>
@@ -163,7 +160,6 @@ export default function Page() {
             </Button>
           </CardFooter>
         </Card>
-
       </div>
 
       <div className='py-4'>
@@ -239,17 +235,6 @@ export default function Page() {
                   <Spinner />
                 )}
               </CardBody>
-              {predictionData.price_range?.lower_bound && predictionData.price_range?.upper_bound && (
-                <CardFooter className="border-t pt-2 mt-4">
-                  <p className="text-xs md:text-sm text-black font-semibold">
-                    <i className="fas fa-tag text-orange mr-2"></i>
-                    Market Value Range:
-                    <span className="font-semibold text-black ml-2">
-                      ${Number(predictionData.price_range?.lower_bound).toLocaleString()} - ${Number(predictionData.price_range?.upper_bound).toLocaleString()}
-                    </span>
-                  </p>
-                </CardFooter>
-              )}
             </Card>
 
             <Card className="flex-grow shadow-lg rounded-lg p-4">
@@ -342,6 +327,17 @@ export default function Page() {
                   <Spinner />
                 )}
               </CardBody>
+              {predictionData.price_range?.lower_bound && predictionData.price_range?.upper_bound && (
+                <CardFooter className="border-t pt-2 mt-4">
+                  <p className="text-xs md:text-sm text-black font-semibold">
+                    <i className="fas fa-tag text-orange mr-2"></i>
+                    Market Value Range:
+                    <span className="font-semibold text-black ml-2">
+                      ${Number(predictionData.price_range?.lower_bound).toLocaleString()} - ${Number(predictionData.price_range?.upper_bound).toLocaleString()}
+                    </span>
+                  </p>
+                </CardFooter>
+              )}
             </Card>
 
             <Card className="flex-grow shadow-lg rounded-lg p-4">

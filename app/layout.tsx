@@ -19,7 +19,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning={true}>
-      <body className="min-h-screen bg-off-white font-sans antialiased" suppressHydrationWarning={true}>
+      <body className="min-h-screen font-sans antialiased bg-carbon" suppressHydrationWarning={true}>
         <NextUIProvider>
           <Header />
           {children}

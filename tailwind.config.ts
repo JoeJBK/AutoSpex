@@ -27,7 +27,17 @@ const config = {
         'gray-lightest': '#d4d4d4',
         'white': '#ffffff',
         'off-white': '#f5f5f5',
-      },
+        'cyber-green': '#00FF9F',
+        'neon-blue': '#32E1FF', 
+        'midnight': '#121212',
+        'silver': '#C0C0C0',
+        'dark-teal': '#006D77', 
+        'purple-neon': '#B983FF', 
+        'electric-pink': '#FF2052', 
+        'cool-gray': '#383E56', 
+        'carbon': '#282A36', 
+      }
+      
     },
   },
   plugins: [nextui(), require("tailwindcss-animate"), require("@tailwindcss/typography")],
