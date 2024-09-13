@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { Button, Input, Card, CardHeader, CardBody, CardFooter, Spinner } from "@nextui-org/react";
 import ReactECharts from 'echarts-for-react';
 
-// import ActiveDealerListings from '../../components/Cards/ActiveDealerListings';
-// import ActiveAuctionListings from '../../components/Cards/ActiveAuctionListings';
-// import ActivePrivateListings from '../../components/Cards/ActivePrivateListings';
+import ActiveDealerListings from '../components/Cards/ActiveDealerListings';
+import ActiveAuctionListings from '../components/Cards/ActiveAuctionListings';
+import ActivePrivateListings from '../components/Cards/ActivePrivateListings';
 import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../lib/api';
 
 export default function Page() {
@@ -366,11 +366,11 @@ export default function Page() {
             {!loading ? <ReactECharts option={priceTimelineOptions} /> : <Spinner />}
           </Card>
 
-          {/* <ActiveDealerListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
+          <ActiveDealerListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
 
           <ActiveAuctionListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
 
-          <ActivePrivateListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} /> */}
+          <ActivePrivateListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
         </div>
       </div>
     </div>
