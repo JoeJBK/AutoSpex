@@ -3,7 +3,7 @@ import { Card, CardHeader, CardBody, CardFooter, Image, Link, Button, Spinner } 
 import { fetchListings } from "../../lib/api";
 
 export default function ActiveDealerListings({
-  year ,
+  year,
   make,
   model,
   trim
@@ -11,7 +11,7 @@ export default function ActiveDealerListings({
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
