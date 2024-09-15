@@ -9,6 +9,7 @@ export default function Page() {
   const [vin, setVin] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [miles, setMiles] = useState('');
+  const [errorText, setErrorText] = useState(null);
   const [loading, setLoading] = useState(false);
   const [listingData, setListingData] = useState({});
   const [currentVehicle, setCurrentVehicle] = useState({
@@ -155,9 +156,13 @@ export default function Page() {
             <Button
               className="bg-orange font-semibold px-8 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform text-white"
               onClick={() => handleSubmit()}
+              isLoading={loading}
             >
               Submit
             </Button>
+            <div>
+              {errorText}
+            </div>
           </CardFooter>
         </Card>
       </div>
