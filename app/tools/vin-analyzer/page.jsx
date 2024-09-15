@@ -3,10 +3,7 @@ import { useState } from 'react';
 import { Button, Input, Card, CardHeader, CardBody, CardFooter, Spinner } from "@nextui-org/react";
 import ReactECharts from 'echarts-for-react';
 
-import ActiveDealerListings from '../components/Cards/ActiveDealerListings';
-import ActiveAuctionListings from '../components/Cards/ActiveAuctionListings';
-import ActivePrivateListings from '../components/Cards/ActivePrivateListings';
-import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../lib/api';
+import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../../lib/api';
 
 export default function Page() {
   const [vin, setVin] = useState('');
@@ -21,12 +18,6 @@ export default function Page() {
     trim: null
   });
   const timelineOptions = {
-    title: {
-      text: 'Vehicle Listing History',
-      textStyle: {
-        color: 'black'
-      }
-    },
     xAxis: {
       type: 'time',
       axisLabel: {
@@ -119,43 +110,56 @@ export default function Page() {
 
   return (
     <div className="p-6">
-      <div className="flex flex-col md:flex-row gap-4 justify-center items-center bg-white py-6 px-8 rounded-lg shadow-md">
-        <Input
-          isClearable
-          className="w-full transition-all duration-200 ease-in-out hover:border-blue focus:border-blue focus:ring-2 focus:ring-blue"
-          placeholder="Enter VIN"
-          value={vin}
-          onChange={(e) => setVin(e.target.value)}
-          onClear={() => setVin('')}
-          variant="underlined"
-          radius="lg"
-        />
-        <Input
-          isClearable
-          className="w-full md:w-30 transition-all duration-200 ease-in-out hover:border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-          placeholder="Enter Vehicle Miles"
-          value={miles}
-          onChange={(e) => setMiles(e.target.value)}
-          onClear={() => setMiles('')}
-          variant="underlined"
-          radius="lg"
-        />
-        <Input
-          isClearable
-          className="w-full md:w-30 transition-all duration-200 ease-in-out hover:border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-          placeholder="Enter Zip Code"
-          value={zipcode}
-          onChange={(e) => setZipcode(e.target.value)}
-          onClear={() => setZipcode('')}
-          variant="underlined"
-          radius="lg"
-        />
-        <Button
-          className="bg-gray hover:bg-blue-600 font-semibold px-8 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform"
-          onClick={() => handleSubmit()}
-        >
-          Submit
-        </Button>
+      <div className="">
+        <Card className="p-6 rounded-lg shadow-lg text-center">
+          <CardHeader >
+            <h1 className="text-2xl font-bold text-blue-600">Check Your Vehicle's Data</h1>
+          </CardHeader>
+          <CardBody>
+            <p className="mt-2 text-gray-700">
+              Enter your vehicle’s VIN, mileage, and zip code to access detailed information about its history,
+              market value, and more. Discover current market trends and compare similar vehicle listings.
+            </p>
+          </CardBody>
+          <CardFooter className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            <Input
+              isClearable
+              className="w-full transition-all duration-200 ease-in-out hover:border-blue focus:border-blue focus:ring-2 focus:ring-blue"
+              placeholder="Enter VIN"
+              value={vin}
+              onChange={(e) => setVin(e.target.value)}
+              onClear={() => setVin('')}
+              variant="underlined"
+              radius="lg"
+            />
+            <Input
+              isClearable
+              className="w-full md:w-30 transition-all duration-200 ease-in-out hover:border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              placeholder="Enter Vehicle Miles"
+              value={miles}
+              onChange={(e) => setMiles(e.target.value)}
+              onClear={() => setMiles('')}
+              variant="underlined"
+              radius="lg"
+            />
+            <Input
+              isClearable
+              className="w-full md:w-30 transition-all duration-200 ease-in-out hover:border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+              placeholder="Enter Zip Code"
+              value={zipcode}
+              onChange={(e) => setZipcode(e.target.value)}
+              onClear={() => setZipcode('')}
+              variant="underlined"
+              radius="lg"
+            />
+            <Button
+              className="bg-orange font-semibold px-8 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform text-white"
+              onClick={() => handleSubmit()}
+            >
+              Submit
+            </Button>
+          </CardFooter>
+        </Card>
       </div>
 
       <div className='py-4'>
@@ -231,17 +235,6 @@ export default function Page() {
                   <Spinner />
                 )}
               </CardBody>
-              {predictionData.price_range?.lower_bound && predictionData.price_range?.upper_bound && (
-                <CardFooter className="border-t pt-2 mt-4">
-                  <p className="text-xs md:text-sm text-black font-semibold">
-                    <i className="fas fa-tag text-orange mr-2"></i>
-                    Market Value Range:
-                    <span className="font-semibold text-black ml-2">
-                      ${Number(predictionData.price_range?.lower_bound).toLocaleString()} - ${Number(predictionData.price_range?.upper_bound).toLocaleString()}
-                    </span>
-                  </p>
-                </CardFooter>
-              )}
             </Card>
 
             <Card className="flex-grow shadow-lg rounded-lg p-4">
@@ -334,6 +327,17 @@ export default function Page() {
                   <Spinner />
                 )}
               </CardBody>
+              {predictionData.price_range?.lower_bound && predictionData.price_range?.upper_bound && (
+                <CardFooter className="border-t pt-2 mt-4">
+                  <p className="text-xs md:text-sm text-black font-semibold">
+                    <i className="fas fa-tag text-orange mr-2"></i>
+                    Market Value Range:
+                    <span className="font-semibold text-black ml-2">
+                      ${Number(predictionData.price_range?.lower_bound).toLocaleString()} - ${Number(predictionData.price_range?.upper_bound).toLocaleString()}
+                    </span>
+                  </p>
+                </CardFooter>
+              )}
             </Card>
 
             <Card className="flex-grow shadow-lg rounded-lg p-4">
@@ -349,14 +353,20 @@ export default function Page() {
           </div>
 
           <Card className='p-8'>
+            <CardHeader>
+              <h2 className="text-lg md:text-xl font-bold flex items-center">
+                <i className="fas fa-wrench text-blue-500 mr-2"></i>Vehicle Listing History
+              </h2>
+            </CardHeader>
+
             {!loading ? <ReactECharts option={priceTimelineOptions} /> : <Spinner />}
           </Card>
 
-          <ActiveDealerListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
+          {/* <ActiveDealerListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
 
           <ActiveAuctionListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
 
-          <ActivePrivateListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} />
+          <ActivePrivateListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} trim={currentVehicle.trim} /> */}
         </div>
       </div>
     </div>
