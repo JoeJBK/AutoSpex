@@ -1,9 +1,9 @@
 "use client";
 import { useState } from 'react';
-import { Button, Input, Card, CardHeader, CardBody, Spinner } from "@nextui-org/react";
-import ActiveDealerListings from '../components/Cards/ActiveDealerListings';
-import ActiveAuctionListings from '../components/Cards/ActiveAuctionListings';
-import ActivePrivateListings from '../components/Cards/ActivePrivateListings';
+import { Button, Input, } from "@nextui-org/react";
+import ActiveDealerListings from '../../components/Cards/ActiveDealerListings';
+import ActiveAuctionListings from '../../components/Cards/ActiveAuctionListings';
+import ActivePrivateListings from '../../components/Cards/ActivePrivateListings';
 
 export default function Page() {
   const [year, setYear] = useState('');
@@ -22,7 +22,6 @@ export default function Page() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      // Mocked data, replace this with your fetch function or API call
       const listingDataResponse = {
         year: year,
         make: make,
@@ -84,41 +83,20 @@ export default function Page() {
           onClear={() => setZipcode('')}
         />
         <Button
-          className="bg-gray hover:bg-blue-600"
+          className="bg-orange text-white"
           onClick={handleSubmit}
         >
           Submit
         </Button>
       </div>
-      <br></br>
-      {/* {loading ? (
-        <Spinner />
-      ) : (
-        <Card className="mt-4 shadow-lg">
-          <CardHeader>
-            <h2 className="text-lg font-bold">Nearest Car Listing</h2>
-          </CardHeader>
-          <CardBody>
-            {listingData.year ? (
-              <ul>
-                <li><strong>Year:</strong> {listingData.year}</li>
-                <li><strong>Make:</strong> {listingData.make}</li>
-                <li><strong>Model:</strong> {listingData.model}</li>
-                <li><strong>Mileage:</strong> {listingData.miles}</li>
-                <li><strong>Location:</strong> {listingData.zipcode}</li>
-              </ul>
-            ) : (
-              <p>No data available</p>
-            )}
-          </CardBody>
-        </Card>
-      )} */}
-      <br></br>
-      <ActiveDealerListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} mileage={currentVehicle.mileage} />
-      <br></br>
-      <ActiveAuctionListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} mileage={currentVehicle.mileage} zipcode={currentVehicle.zipcode}/>
-      <br></br>
-      <ActivePrivateListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} mileage={currentVehicle.mileage} />
+
+      <div className='flex flex-col space-y-4 pt-4'>
+        <ActiveDealerListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} mileage={currentVehicle.mileage} />
+
+        <ActiveAuctionListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} mileage={currentVehicle.mileage} zipcode={currentVehicle.zipcode} />
+
+        <ActivePrivateListings year={currentVehicle.year} make={currentVehicle.make} model={currentVehicle.model} mileage={currentVehicle.mileage} />
+      </div>
     </div>
   );
 }
