@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Input, Card, CardHeader, CardBody, CardFooter, Spinner } from "@nextui-org/react";
 import ReactECharts from 'echarts-for-react';
 
-import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../lib/api';
+import { fetchPriceHistory, fetchPricePrediction, fetchSimilarSalesHistory } from '../../lib/api';
 
 export default function Page() {
   const [vin, setVin] = useState('');
@@ -153,7 +153,7 @@ export default function Page() {
               radius="lg"
             />
             <Button
-              className="bg-blue hover:bg-blue-600 font-semibold px-8 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform text-white"
+              className="bg-orange font-semibold px-8 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform text-white"
               onClick={() => handleSubmit()}
             >
               Submit
