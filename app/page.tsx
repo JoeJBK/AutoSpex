@@ -10,7 +10,7 @@ export default async function Home() {
   // const session = await appClient.getSession()
 
   return (
-    <div className="">
+    <div className="space-y-4">
       <Card className="max-w-lg w-full h-min m-auto">
         <CardHeader className="flex justify-center items-center">
           <i className="fa fa-car mr-3 text-2xl text-blue"></i>
@@ -26,6 +26,36 @@ export default async function Home() {
         <CardFooter className="flex justify-center">
           <Button color="primary" as={Link} href="/analysis">
             Try Now
+          </Button>
+        </CardFooter>
+      </Card>
+      
+      <Card className="max-w-lg w-full h-min m-auto">
+        <CardHeader className="flex justify-center items-center">
+          <i className="fa fa-car mr-3 text-2xl text-blue"></i>
+          <h3 className="text-xl font-semibold">Search Local Vehicles</h3>
+        </CardHeader>
+
+        <CardBody className="text-center">
+          <p className="text-gray-700 mb-6">
+            Discover local vehicles of your preference by Make, Model, Year, etc... using your zipcode.
+          </p>
+        </CardBody>
+        <CardFooter className="flex justify-center">
+          <Button color="primary" as={Link} href="/newVehicleSearch">
+            Try Now
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Card className="max-w-lg w-full h-min m-auto">
+        <CardHeader className="flex justify-center items-center">
+          <i className="fa fa-car mr-3 text-2xl text-blue"></i>
+          <h3 className="text-xl font-semibold">About Us</h3>
+        </CardHeader>
+        <CardFooter className="flex justify-center">
+          <Button color="primary" as={Link} href="/AboutUs">
+            Visit
           </Button>
         </CardFooter>
       </Card>
